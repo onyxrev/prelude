@@ -148,6 +148,11 @@ All whitespace characters, including tab, form feed, and newline"
 (scroll-bar-mode -1)
 (setq ns-use-srgb-colorspace t)
 
+(global-set-key (kbd "C-x <up>") 'windmove-up)
+(global-set-key (kbd "C-x <down>") 'windmove-down)
+(global-set-key (kbd "C-x <right>") 'windmove-right)
+(global-set-key (kbd "C-x <left>") 'windmove-left)t
+
 (load-theme 'tango-dark t)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
