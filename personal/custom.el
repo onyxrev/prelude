@@ -131,6 +131,10 @@ All whitespace characters, including tab, form feed, and newline"
   (interactive "r")
   (align-regexp beg end "\\(-*\\)//" 1 0 t))
 
+(defun align-attributes (beg end)
+  (interactive "r")
+  (align-regexp beg end "\\(\\s-*\\) \\(\\s-*\\)" 1 0 t))
+
 ;; allow arrow keys
 (setq prelude-guru nil)
 
