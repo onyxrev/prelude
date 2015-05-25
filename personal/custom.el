@@ -21,8 +21,8 @@ t(setq load-path (append
     ("\\.rhtml$"       . web-mode)
     ("\\.erb$"         . web-mode)
     ("\\.less$"        . css-mode)
-    ("\\.scss$"        . sass-mode)
-    ("\\.sass$"        . sass-mode)
+    ("\\.scss$"        . css-mode)
+    ("\\.sass$"        . css-mode)
     ("\\.yml$"         . yaml-mode)
     ("\\.phtml\\'"     . web-mode)
     ("\\.html\\'"      . web-mode)
@@ -51,6 +51,12 @@ t(setq load-path (append
     (define-key ruby-mode-map "\C-c\C-c" 'ruby-eval-buffer)
     )
   )
+
+(add-hook 'css-mode-hook
+          (lambda ()
+            (setq css-indent-offset 2)
+            )
+          )
 
 (add-hook 'js-mode-hook
           (lambda ()
