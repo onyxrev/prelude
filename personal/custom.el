@@ -108,6 +108,9 @@ All whitespace characters, including tab, form feed, and newline"
 
 (define-all-whitespace-category (standard-category-table))
 
+;; get rid of evil whitespace
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 (defun align-commas (beg end)
   (interactive "r")
   (align-regexp beg end ",\\(\\s-*\\)" 1 1 t))
