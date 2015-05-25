@@ -66,6 +66,25 @@ t(setq load-path (append
 
 (setq sgml-basic-offset 2)
 
+;; turn off network and other slow features in ffap, which slow down
+;; helm-for-files when the thing under point looks like a url or domain.
+;;
+;; having (type . file) in a source can also lead to attempts to open network
+;; connections. maybe because some entries look like tramp paths? who knows.
+;; regardless, watch out for that.
+(custom-set-variables
+ '(ffap-alist nil)                ; faster, dumber prompting
+ '(ffap-machine-p-known 'accept)  ; don't ping domains
+                                        ; disable URLs, FTP, remote filesystems, etc. would set them to nil except
+                                        ; that some fns like helm-find-files-get-candidates pass them directly to
+                                        ; string-match, which complains.
+ '(ffap-url-regexp nil)
+ '(helm-ff-url-regexp "^$")       ; a helm variant
+ '(ffap-ftp-regexp nil)
+ '(ffap-ftp-sans-slash-regexp nil)
+ '(ffap-rfs-regexp nil)
+ '(ffap-shell-prompt-regexp nil)) ; disable shell prompt stripping
+
 (setq visible-bell t)
 (setq ring-bell-function 'ignore)
 
